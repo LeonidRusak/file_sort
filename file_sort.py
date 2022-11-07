@@ -11,6 +11,7 @@ def create_folders_from_list(folder_path, folder_names):
         if not os.path.exists(f'{folder_path}\\{folder}'):
             os.mkdir(f'{folder_path}\\{folder}')
 
+
 # Функция создает папки из списка
 def get_subfolder_path(folder_path):
     subfolder_path = [f.path for f in os.scandir(folder_path) if f.is_dir()]
@@ -33,10 +34,12 @@ def sort_files(folder_path, dict_=extensions):
 
         for dict_key_int in range(len(ext_list)):
             if extensions in ext_list[dict_key_int][1]:
-                print(f'Moving {file_name} in {ext_list[dict_key_int][0]} folder\n')
-                os.rename(file_path, f'{main_sort_directory}\\{ext_list[dict_key_int][0]}\\{file_name}')
+                try:
+                    print(f'Перемещение {file_name} в папку {ext_list[dict_key_int][0]}')
+                    os.rename(file_path, f'{main_sort_directory}\\{ext_list[dict_key_int][0]}\\{file_name}')
+                except FileExistsError:
+                    print(f'В папке назначения уже есть этот файл')
 
 
 create_folders_from_list(main_sort_directory, extensions)
 sort_files(main_sort_directory)
-
