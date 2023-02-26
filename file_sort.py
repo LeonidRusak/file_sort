@@ -1,6 +1,6 @@
 import os
 
-main_sort_directory = 'D:\\python_lesson_school\\file_sort\\all_files'  # Исходная папка с различными файлами
+main_sort_directory = 'D:\\python\\all_files'  # Исходная папка с различными файлами
 extensions = {'pictures': ['png', 'jpg'], 'music': ['mp3', 'flac'], 'text': ['pdf', 'txt', 'doc']}
 """
     Для расширения функционала сортировщика, необходимо добавить в словарь 'extensions' пары ключ:значение, 
